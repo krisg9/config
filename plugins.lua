@@ -43,6 +43,7 @@ local plugins = {
     "mfussenegger/nvim-dap",
     config = function()
       require("dap-python").setup("python", {})
+      require("dap-go").setup()
     end,
   },
 
