@@ -5,6 +5,7 @@ local plugins = {
 
   {
     "ray-x/web-tools.nvim",
+    lazy = false,
     config = function()
       require("web-tools").setup {
         keymaps = {

@@ -8,9 +8,15 @@ M.ui = {
   theme = "onedark",
   theme_toggle = { "onedark", "onedark" },
 
-  hl_override = highlights.override,
+  -- hl_override = highlights.override,
   hl_add = highlights.add,
   transparency = true,
+  hl_override = {
+    NvDashAscii = {
+      fg = "blue",
+      bg = "black2",
+    },
+  },
   nvdash = {
     load_on_startup = true,
     header = {
