@@ -21,3 +21,5 @@ lspconfig.sqls.setup {
   end,
   capabilities = capabilities,
 }
+-- latex
+lspconfig.ltex.setup {}
