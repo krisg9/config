@@ -19,7 +19,7 @@ local sources = {
   b.formatting.clang_format,
 
   -- python
-  b.formatting.black,
+  b.formatting.autopep8,
   -- go
   b.formatting.gofumpt,
   -- Shell
