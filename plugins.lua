@@ -2,6 +2,11 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
+  -- git
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
 
   {
     "ray-x/web-tools.nvim",
