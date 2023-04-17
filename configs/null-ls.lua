@@ -7,6 +7,8 @@ end
 local b = null_ls.builtins
 
 local sources = {
+  -- scala
+  b.formatting.scalafmt,
 
   -- webdev stuff
   b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
