@@ -57,6 +57,7 @@ local plugins = {
   -- dap and dap-ui\
   {
     "mfussenegger/nvim-dap",
+    lazy = false,
     config = function()
       require("dap-python").setup("python", {})
       require("dap-go").setup()

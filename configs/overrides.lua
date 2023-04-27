@@ -22,15 +22,41 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    -- lua stuff
+    "autopep8",
     "lua-language-server",
-    "stylua",
-
-    -- web dev stuff
+    "chrome-debug-adapter",
     "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
+    "cssmodules-language-server",
+    "debugpy",
+    "delve",
     "deno",
+    "flake8",
+    "go-debug-adapter",
+    "gofumpt",
+    "gopls",
+    "html-lsp",
+    "isort",
+    "jdtls",
+    "jedi-language-server",
+    "json-lsp",
+    "latexindent",
+    "lemminx",
+    "ltex-ls",
+    "prettier",
+    "shellcheck",
+    "shfmt",
+    "sql-formatter",
+    "sqlfluff",
+    "sqlls",
+    "stylua",
+    "tailwindcss-language-server",
+    "tectonic",
+    "typescript-language-server",
+    "vale",
+    "xmlformatter",
+    "yaml-language-server",
+    "yamlfmt",
+    "yamllint",
   },
 }
 
@@ -39,7 +65,6 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
   renderer = {
     highlight_git = true,
     icons = {
