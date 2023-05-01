@@ -27,10 +27,12 @@ local plugins = {
           rename = nil, -- by default use same setup of lspconfig
           repeat_rename = ".", -- . to repeat
         },
-        hurl = { -- hurl default
+        hurl = {
+          -- hurl default
           show_headers = false, -- do not show http headers
           floating = false, -- use floating windows (need guihua.lua)
-          formatters = { -- format the result by filetype
+          formatters = {
+            -- format the result by filetype
             json = { "jq" },
             html = { "prettier", "--parser", "html" },
           },
@@ -108,6 +110,49 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "autopep8",
+        "lua-language-server",
+        "chrome-debug-adapter",
+        "css-lsp",
+        "cssmodules-language-server",
+        "debugpy",
+        "delve",
+        "deno",
+        "flake8",
+        "go-debug-adapter",
+        "gofumpt",
+        "gopls",
+        "html-lsp",
+        "isort",
+        "jdtls",
+        "jedi-language-server",
+        "json-lsp",
+        "latexindent",
+        "lemminx",
+        "ltex-ls",
+        "prettier",
+        "shellcheck",
+        "shfmt",
+        "sql-formatter",
+        "sqlfluff",
+        "sqlls",
+        "stylua",
+        "tailwindcss-language-server",
+        "tectonic",
+        "typescript-language-server",
+        "vale",
+        "xmlformatter",
+        "yaml-language-server",
+        "yamlfmt",
+        "yamllint",
+      },
+    },
   },
 
   { "goolord/alpha-nvim", disable = false }, -- enables dashboard
