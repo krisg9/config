@@ -17,6 +17,7 @@ local sources = {
 
   -- python
   b.formatting.autopep8,
+  b.diagnostics.flake8,
   -- go
   b.formatting.gofumpt,
   -- Shell
