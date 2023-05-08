@@ -13,14 +13,14 @@ local plugins = {
   },
 
   -- scala
-  {
-    "scalameta/nvim-metals",
-    requires = "nvim-lua/plenary",
-    lazy = false,
-    config = function()
-      require "custom.configs.metals"
-    end,
-  },
+  -- {
+  --   "scalameta/nvim-metals",
+  --   requires = "nvim-lua/plenary",
+  --   lazy = false,
+  --   config = function()
+  --     require "custom.configs.metals"
+  --   end,
+  -- },
   -- git
   {
     "tpope/vim-fugitive",
@@ -55,6 +55,7 @@ local plugins = {
   -- LaTex support
   {
     "lervag/vimtex",
+    ft = "tex",
     lazy = false,
     config = function()
       vim.cmd [[
@@ -86,6 +87,7 @@ local plugins = {
   -- go dap
   {
     "leoluz/nvim-dap-go",
+    ft = "go",
     config = function()
       require("dap-go").setup()
     end,
