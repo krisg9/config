@@ -21,6 +21,7 @@ local plugins = {
   --     require "custom.configs.metals"
   --   end,
   -- },
+
   -- git
   {
     "tpope/vim-fugitive",
