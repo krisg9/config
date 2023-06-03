@@ -6,18 +6,24 @@ local sources = {
   b.formatting.scalafmt,
 
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css", "scss" } }, -- so prettier works only on these filetypes
+  b.formatting.deno_fmt, -- choose deno for ts/js files cuz its very fast!
+  -- so prettier works only on these filetypes
+  b.formatting.prettier.with { filetypes = { "html", "markdown", "css", "scss" } },
+  b.diagnostics.eslint,
 
   -- Lua
   b.formatting.stylua,
+  b.diagnostics.luacheck,
 
   -- cpp
   b.formatting.clang_format,
 
   -- python
-  b.formatting.autopep8,
+  b.formatting.black,
   b.diagnostics.flake8,
+  b.diagnostics.mypy,
+  b.diagnostics.pylint,
+
   -- go
   b.formatting.gofumpt,
   -- Shell
