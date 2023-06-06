@@ -143,7 +143,7 @@ local plugins = {
         "html-lsp",
         "isort",
         "jdtls",
-        "jedi-language-server",
+        "pyright",
         "json-lsp",
         "latexindent",
         "lemminx",

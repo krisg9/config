@@ -22,10 +22,12 @@ local sources = {
   b.formatting.black,
   b.diagnostics.flake8,
   b.diagnostics.mypy,
+  b.diagnostics.ruff,
   b.diagnostics.pylint,
 
   -- go
   b.formatting.gofumpt,
+  b.diagnostics.golangci_lint,
   -- Shell
   b.formatting.shfmt,
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
