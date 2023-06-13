@@ -34,6 +34,8 @@ local sources = {
 
   -- latex
   b.formatting.latexindent,
+
+  b.diagnostics.jsonlint,
 }
 
 null_ls.setup {

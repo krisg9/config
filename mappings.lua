@@ -7,6 +7,12 @@ M.general = {
   },
 }
 
+M.trouble = {
+  n = {
+    ["<leader>tr"] = { "<cmd> TroubleToggle<cr>" },
+  },
+}
+
 M.dap = {
   n = {
     ["<F5>"] = {
