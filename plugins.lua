@@ -23,7 +23,8 @@ local plugins = {
   {
     "scalameta/nvim-metals",
     requires = "nvim-lua/plenary",
-    lazy = false,
+    -- lazy = false,
+    ft = { "scala", "sbt", "sc" },
     config = function()
       require "custom.configs.metals"
     end,
