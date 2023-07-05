@@ -20,15 +20,15 @@ local plugins = {
   },
 
   -- scala
-  -- {
-  --   "scalameta/nvim-metals",
-  --   requires = "nvim-lua/plenary",
-  --   lazy = false,
-  --   config = function()
-  --     require "custom.configs.metals"
-  --   end,
-  -- },
-
+  {
+    "scalameta/nvim-metals",
+    requires = "nvim-lua/plenary",
+    lazy = false,
+    config = function()
+      require "custom.configs.metals"
+    end,
+  },
+  --
   -- git
   {
     "tpope/vim-fugitive",

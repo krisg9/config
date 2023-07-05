@@ -7,6 +7,17 @@ M.general = {
   },
 }
 
+M.metals = {
+  plugin = true,
+  n = {
+    ["<leader>lmc"] = {
+      function()
+        require("telescope").extensions.metals.commands()
+      end,
+    },
+  },
+}
+
 M.trouble = {
   n = {
     ["<leader>tr"] = { "<cmd> TroubleToggle<cr>" },
