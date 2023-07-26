@@ -33,4 +33,4 @@ lspconfig.sqlls.setup {
   capabilities = capabilities,
 }
 -- latex
-lspconfig.ltex.setup {}
+lspconfig.texlab.setup {}
