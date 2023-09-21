@@ -2,6 +2,23 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
+
+  -- markdown preview
+  {
+    "toppair/peek.nvim",
+    build = "deno task --quiet build:fast",
+    ft = { "markdown", "vimwiki" },
+    config = function()
+      require("peek").setup {
+        app = "browser",
+        filetype = { "markdown", "vimwiki" },
+      }
+    end,
+    init = function()
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
+  },
   {
     "folke/trouble.nvim",
     cmd = "Trouble",

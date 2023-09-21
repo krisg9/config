@@ -4,6 +4,12 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<leader>cl"] = {
+      function()
+        vim.lsp.codelens.run()
+      end,
+      "Codelens",
+    },
   },
 }
 

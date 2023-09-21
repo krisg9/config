@@ -14,6 +14,7 @@ metals_config.settings = {
   showImplicitArguments = true,
   showInferredType = true,
   showImplicitConversionsAndClasses = true,
+  enableSemanticHighlighting = false,
 }
 
 metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
