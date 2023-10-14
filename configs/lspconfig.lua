@@ -7,7 +7,6 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  "tsserver",
   "clangd",
   "gopls",
   "lua_ls",
@@ -16,6 +15,30 @@ local servers = {
   "sqlls",
   "lua_ls",
   "dotls",
+}
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    },
+  },
 }
 
 for _, lsp in ipairs(servers) do

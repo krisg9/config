@@ -2,8 +2,6 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
-  -- scala
-  -- b.formatting.scalafmt,
   -- webdev stuff
   b.formatting.deno_fmt, -- choose deno for ts/js files cuz its very fast!
   -- so prettier works only on these filetypes
@@ -25,8 +23,6 @@ local sources = {
 
   -- go
   b.formatting.gofumpt,
-  b.diagnostics.golangci_lint,
-  b.formatting.golines,
 
   -- Shell
   b.formatting.shfmt,

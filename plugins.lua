@@ -3,6 +3,15 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
 
+  -- smooth scroll
+  {
+    "karb94/neoscroll.nvim",
+    keys = { "<C-d>", "<C-u>" },
+    config = function()
+      require("neoscroll").setup()
+    end,
+  },
+
   -- markdown preview
   {
     "toppair/peek.nvim",
@@ -95,18 +104,31 @@ local plugins = {
   -- dap and dap-ui\
   {
     "mfussenegger/nvim-dap",
-    lazy = false,
     config = function()
       require("dap-python").setup("python", {})
       require("dap-go").setup()
+      require "custom.configs.dap"
+      require("core.utils").load_mappings "dap"
     end,
   },
 
   {
     "rcarriga/nvim-dap-ui",
-    requires = { "mfussenegger/nvim-dap" },
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
     config = function()
+      local dap = require "dap"
+      local dapui = require "dapui"
       require("dapui").setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
     end,
   },
 
@@ -188,6 +210,7 @@ local plugins = {
         "yaml-language-server",
         "yamlfmt",
         "yamllint",
+        "js-debug-adapter",
       },
     },
   },
