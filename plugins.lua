@@ -36,10 +36,10 @@ local plugins = {
     end,
   },
 
-  -- select menu for mason screen
+  -- telescope ui-select menu
   {
-    "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy",
+    "nvim-telescope/telescope.nvim",
+    dependencies = "nvim-telescope/telescope-ui-select.nvim",
     config = function()
       require("telescope").load_extension "ui-select"
     end,
