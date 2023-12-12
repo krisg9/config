@@ -12,13 +12,14 @@ local sources = {
   b.formatting.stylua,
   b.diagnostics.luacheck,
 
+  -- YAML
+  b.formatting.yamlfmt,
+
   -- cpp
   b.formatting.clang_format,
 
   -- python
   b.formatting.black,
-  b.diagnostics.mypy,
-  b.diagnostics.ruff,
   b.diagnostics.pylint,
 
   -- go
