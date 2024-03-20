@@ -4,6 +4,18 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local null_ls = require "null-ls"
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.formatting.stylua,
+        },
+      }
+    end,
+  },
+
+  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
@@ -85,13 +97,13 @@ local plugins = {
     config = function()
       require("web-tools").setup {
         keymaps = {
-          rename = nil, -- by default use same setup of lspconfig
+          rename = nil,        -- by default use same setup of lspconfig
           repeat_rename = ".", -- . to repeat
         },
         hurl = {
           -- hurl default
           show_headers = false, -- do not show http headers
-          floating = false, -- use floating windows (need guihua.lua)
+          floating = false,     -- use floating windows (need guihua.lua)
           formatters = {
             -- format the result by filetype
             json = { "jq" },
