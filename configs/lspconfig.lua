@@ -1,7 +1,15 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+
+local custom_on_attach = function(client, bufnr)
+  on_attach(client, bufnr)
+
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint(bufnr, true)
+  end
+end
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
@@ -26,7 +34,7 @@ local function organize_imports()
 end
 
 lspconfig.tsserver.setup {
-  on_attach = on_attach,
+  on_attach = custom_on_attach,
   capabilities = capabilities,
   init_options = {
     preferences = {
@@ -43,7 +51,7 @@ lspconfig.tsserver.setup {
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
+    on_attach = custom_on_attach,
     capabilities = capabilities,
   }
 end

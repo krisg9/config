@@ -1,106 +1,36 @@
----@type MappingsTable
-local M = {}
+local map = vim.keymap.set
 
-M.todocomments = {
-  n = {
-    ["<leader>tt"] = { "<cmd> TodoTelescope<cr>" },
-  },
-}
+-- Todo Comments
+map("n", "<leader>tt", "<cmd>TodoTelescope<cr>", { desc = "Todo Telescope" })
 
-M.general = {
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>cl"] = {
-      function()
-        vim.lsp.codelens.run()
-      end,
-      "Codelens",
-    },
-  },
-}
+-- General mappings
+map("n", ";", ":", { desc = "enter command mode" })
+map("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<cr>", { desc = "Codelens" })
 
-M.metals = {
-  plugin = true,
-  n = {
-    ["<leader>lmc"] = {
-      function()
-        require("telescope").extensions.metals.commands()
-      end,
-    },
-  },
-}
+-- Metals mappings
+map("n", "<leader>lmc", "<cmd>lua require('telescope').extensions.metals.commands()<cr>")
 
-M.trouble = {
-  n = {
-    ["<leader>tr"] = { "<cmd> TroubleToggle<cr>" },
-  },
-}
+-- Trouble mappings
+map("n", "<leader>tr", "<cmd>TroubleToggle<cr>")
 
-M.dap = {
-  n = {
-    ["<F5>"] = {
-      function()
-        require("dap").continue()
-      end,
-      "Start Debbuging",
-    },
-    ["<F10>"] = {
-      function()
-        require("dap").step_over()
-      end,
-      "Step Over",
-    },
-    ["<F11>"] = {
-      function()
-        require("dap").step_into()
-      end,
-      "Step Into",
-    },
-    ["<F12>"] = {
-      function()
-        require("dap").step_out()
-      end,
-      "Step Out",
-    },
-    ["<leader>br"] = {
-      function()
-        require("dap").toggle_breakpoint()
-      end,
-      "Toggle Breakpoint",
-    },
-    ["<leader>BR"] = {
-      function()
-        require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
-      end,
-      "Set Breakpoint Condition",
-    },
-    ["<leader>lp"] = {
-      function()
-        require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ")
-      end,
-      "Log point message",
-    },
-    ["<leader>repl"] = {
-      function()
-        require("dap").repl.open()
-      end,
-      "Open REPL",
-    },
-    ["<leader>du"] = {
-      function()
-        require("dapui").toggle()
-      end,
-      "Toggle DAP GUI",
-    },
-    ["<leader>vl"] = {
-      function()
-        require("dapui").eval()
-      end,
-      "Evaluate expression",
-    },
-  },
-}
-
--- more keybinds!
-
-return M
+-- DAP mappings
+map("n", "<F5>", "<cmd>lua require('dap').continue()<cr>", { desc = "Start Debugging" })
+map("n", "<F10>", "<cmd>lua require('dap').step_over()<cr>", { desc = "Step Over" })
+map("n", "<F11>", "<cmd>lua require('dap').step_into()<cr>", { desc = "Step Into" })
+map("n", "<F12>", "<cmd>lua require('dap').step_out()<cr>", { desc = "Step Out" })
+map("n", "<leader>br", "<cmd>lua require('dap').toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
+map(
+  "n",
+  "<leader>BR",
+  "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
+  { desc = "Set Breakpoint Condition" }
+)
+map(
+  "n",
+  "<leader>lp",
+  "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
+  { desc = "Log point message" }
+)
+map("n", "<leader>repl", "<cmd>lua require('dap').repl.open()<cr>", { desc = "Open REPL" })
+map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", { desc = "Toggle DAP GUI" })
+map("n", "<leader>vl", "<cmd>lua require('dapui').eval()<cr>", { desc = "Evaluate expression" })
