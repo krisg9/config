@@ -3,12 +3,21 @@ local overrides = require "configs.overrides"
 local plugins = {
 
   {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-ts-autotag").setup()
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
     end,
   },
+
+  -- {
+  --   "windwp/nvim-ts-autotag",
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("nvim-ts-autotag").setup()
+  --   end,
+  -- },
 
   {
     "stevearc/conform.nvim",
@@ -28,6 +37,9 @@ local plugins = {
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
+    opts = {
+      inlay_hints = { enabled = true },
+    },
   },
 
   {
@@ -251,6 +263,9 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      "windwp/nvim-ts-autotag",
+    },
   },
 
   {

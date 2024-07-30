@@ -7,12 +7,15 @@ local custom_on_attach = function(client, bufnr)
   on_attach(client, bufnr)
 
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint(bufnr, true)
+    -- vim.lsp.inlay_hint.enable(true)
   end
 end
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
+  "docker_compose_language_service",
+  "dockerls",
+  "tailwindcss",
   "html",
   "cssls",
   "clangd",
@@ -65,3 +68,5 @@ lspconfig.sqlls.setup {
 }
 -- latex
 lspconfig.texlab.setup {}
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })

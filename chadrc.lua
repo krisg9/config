@@ -4,20 +4,33 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
 
-M.ui = {
+M.base46 = {
   theme = "onedark",
   theme_toggle = { "onedark" },
-  statusline = {
-    theme = "default",
-  },
-  -- hl_override = highlights.override,
-  hl_add = highlights.add,
   transparency = true,
+  hl_add = highlights.add,
   hl_override = {
     NvDashAscii = {
       fg = "blue",
       bg = "black2",
     },
+  },
+}
+
+M.ui = {
+  -- to be removed when not supported
+  theme = "onedark",
+  theme_toggle = { "onedark" },
+  hl_add = highlights.add,
+  hl_override = {
+    NvDashAscii = {
+      fg = "blue",
+      bg = "black2",
+    },
+  },
+  transparency = true,
+  statusline = {
+    theme = "default",
   },
   nvdash = {
     load_on_startup = true,
