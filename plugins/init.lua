@@ -2,6 +2,13 @@ local overrides = require "configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
 
+  { "nvchad/volt", lazy = true },
+
+  {
+    "nvchad/minty",
+    cmd = { "Shades", "Huefy" },
+  },
+
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

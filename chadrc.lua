@@ -1,36 +1,21 @@
----@type ChadrcConfig
-local M = {}
-
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
 
-M.base46 = {
-  theme = "onedark",
-  theme_toggle = { "onedark" },
-  transparency = true,
-  hl_add = highlights.add,
-  hl_override = {
-    NvDashAscii = {
-      fg = "blue",
-      bg = "black2",
-    },
+local M = {
+  base46 = {
+    theme = "onedark",
+    theme_toggle = { "onedark" },
+    transparency = true,
+    hl_add = highlights.add,
   },
-}
-
-M.ui = {
-  -- to be removed when not supported
-  theme = "onedark",
-  theme_toggle = { "onedark" },
-  hl_add = highlights.add,
-  hl_override = {
-    NvDashAscii = {
-      fg = "blue",
-      bg = "black2",
+  ui = {
+    theme = "onedark",
+    theme_toggle = { "onedark" },
+    hl_add = highlights.add,
+    transparency = true,
+    statusline = {
+      theme = "default",
     },
-  },
-  transparency = true,
-  statusline = {
-    theme = "default",
   },
   nvdash = {
     load_on_startup = true,
@@ -46,11 +31,11 @@ M.ui = {
       " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
       "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
       "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
+      "                                   ",
     },
   },
+  plugins = require "plugins",
+  mappings = require "mappings",
 }
-
-M.plugins = require "plugins"
-M.mappings = require "mappings"
 
 return M
